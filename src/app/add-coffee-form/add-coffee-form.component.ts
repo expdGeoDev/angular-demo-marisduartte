@@ -1,7 +1,8 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { CoffeeDataService } from '../coffee-data.service';
+import { CoffeeInfo, coffeeLoad } from './coffee.model';
+import { CoffeeDataServices } from './coffee.data.services';
 
 @Component({
   selector: 'app-add-coffee-form',
@@ -11,20 +12,22 @@ import { CoffeeDataService } from '../coffee-data.service';
   styleUrl: './add-coffee-form.component.css'
 })
 
-export class AddCoffeeFormComponent implements OnInit {
- 
-  id: number = 0;
-	brand: string = '';
-	roast: string = '';
-	groundOrBeans: string = '';
-	grind?: number;
-	singleOrigin?: boolean;
-	flavorNotes?: string;
-
-  constructor(){}
+export class AddCoffeeFormComponent  {
+  coffees : CoffeeInfo = {id: 0, brand: '', groundOrBeans:'', roast: ''} ;
+//  id: number = 0;
+//	brand: string = '';
+//	roast: string = '';
+//	groundOrBeans: string = '';
+//	grind?: number;
+//	singleOrigin?: boolean;
+//	flavorNotes?: string;
+  
+  constructor(private CoffeeDataServices:CoffeeDataServices){
+  }
   
   onSubmit(){
-    console.log()
+    this.CoffeeDataServices.addCoffeeInfo(this.coffees)
+    console.log(this.coffees)
   }
 
   onReset(){
@@ -32,9 +35,9 @@ export class AddCoffeeFormComponent implements OnInit {
   }
 
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+//  ngOnInit(): void {
+//    throw new Error('Method not implemented.');
+//  }
 
 }
 

@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="form" (ngSubmit)="onSubmit()">
+    <form #coffeeform ="ngForm" class="form" (ngSubmit)="onSubmit()">
       <img class="logo" src="/assets/logo.jpg" />
       <div class="adding-coffee-data-header">New Coffee </div>
      
@@ -9,48 +9,48 @@
         name="brand"
         placeholder="Brand Name"
         type="text" required
-        [(ngModel)]="brand"
-        />
+        [(ngModel)]="coffees.brand"
+             />
       </div>
 
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required [(ngModel)]="groundOrBeans">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Beans" required [(ngModel)]="coffees.groundOrBeans">
           <label class="form-check-label" for="inlineRadio1">Beans</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" [(ngModel)]="groundOrBeans">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Ground" required [(ngModel)]="coffees.groundOrBeans">
           <label class="form-check-label" for="inlineRadio2">Ground</label>
         </div>
    
 
-      <select class="form-select" aria-label="Roast Type" required [(ngModel)]="roast"> 
-        <option selected>Select Roast</option>
-        <option value="1">LIGHT</option>
-        <option value="2">MEDIUM</option>
-        <option value="3">MEDIUM DARK</option>
-        <option value="3">DARK</option>
+      <select class="form-select" name="roast" aria-label="Roast Type" required [(ngModel)]="coffees.roast"> 
+        <option value="Light">LIGHT</option>
+        <option value="Medium">MEDIUM</option>
+        <option value="Dark">DARK</option>
       </select>
 
       <div class="form-switch">
-        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="singleOrigin">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" >
         <label class="form-check-label" for="flexSwitchCheckDefault"> SingleOrigin</label>
       </div>
       
       <div class="mb-3">
         <label for="exampleFormControlTextarea1" class="form-label">Flavour Notes</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="flavorNotes"></textarea>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" ></textarea>
       </div>
 
       <label for="customRange2" class="form-label">Grind</label>
-      <input type="range" class="form-range" min="1" max="60" id="customRange2" [(ngModel)]="grind">
+      <input type="range" class="form-range" min="1" max="3" id="customRange2" >
 
 
       <div class="buttons">
-        <button type="submit"class="button cta"> Submit </button>
-
-
+        <button type="submit" [disabled]="coffeeform.form.invalid">Submit</button>
       </div>
+
+
+      <button type="button" name="Reset" (click)="coffeeform.resetForm()">Reset</button>
+
     </form>
   </div>
   

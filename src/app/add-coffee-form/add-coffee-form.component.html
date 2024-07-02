@@ -1,1 +1,56 @@
-<p>add-coffee-form works!</p>
+<div class="container">
+    <form class="form" (ngSubmit)="onSubmit()">
+      <img class="logo" src="/assets/logo.jpg" />
+      <div class="adding-coffee-data-header">New Coffee </div>
+     
+      <div class="brand">
+      <input
+        id ="brand"  
+        name="brand"
+        placeholder="Brand Name"
+        type="text" required
+        [(ngModel)]="brand"
+        />
+      </div>
+
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" required [(ngModel)]="groundOrBeans">
+          <label class="form-check-label" for="inlineRadio1">Beans</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" [(ngModel)]="groundOrBeans">
+          <label class="form-check-label" for="inlineRadio2">Ground</label>
+        </div>
+   
+
+      <select class="form-select" aria-label="Roast Type" required [(ngModel)]="roast"> 
+        <option selected>Select Roast</option>
+        <option value="1">LIGHT</option>
+        <option value="2">MEDIUM</option>
+        <option value="3">MEDIUM DARK</option>
+        <option value="3">DARK</option>
+      </select>
+
+      <div class="form-switch">
+        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" [(ngModel)]="singleOrigin">
+        <label class="form-check-label" for="flexSwitchCheckDefault"> SingleOrigin</label>
+      </div>
+      
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Flavour Notes</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="flavorNotes"></textarea>
+      </div>
+
+      <label for="customRange2" class="form-label">Grind</label>
+      <input type="range" class="form-range" min="1" max="60" id="customRange2" [(ngModel)]="grind">
+
+
+      <div class="buttons">
+        <button type="submit"class="button cta"> Submit </button>
+
+
+      </div>
+    </form>
+  </div>
+  

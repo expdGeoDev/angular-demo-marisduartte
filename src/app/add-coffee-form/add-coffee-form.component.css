@@ -1,0 +1,53 @@
+.adding-coffee-data-header {
+    margin-top: 5px;
+    font-size: 30px;
+    align-self: center;
+    justify-content:center;
+    color: #C5AF98;
+    font-weight: bold;
+    background-color: #44251C;
+    
+  }
+
+  #brand{
+    width: 100%
+  }
+
+  .brand {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+
+  .form {
+    position:relative;
+    align-self: center;
+    color: #555;
+    font-weight: bold;
+  }
+
+  .logo{
+  width: 100%;
+  }
+
+
+
+  .form-select {
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .form-switch {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    justify-content: flex-end;
+    font-size: 16px;
+  }
+
+  .form-check-label {
+    margin-left: 5px;
+
+    justify-content: flex-end;
+    font-size: 16px;
+  }
+

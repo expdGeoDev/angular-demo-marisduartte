@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Coffee, coffeeData } from '../data/coffee-data';
+import { AddCoffeeFormComponent } from './add-coffee-form/add-coffee-form.component';
 
 @Injectable({
 	providedIn: 'root',
@@ -10,6 +11,7 @@ export class CoffeeDataService {
 		this.coffeeData = coffeeData;
 	}
 
+	
 	getAllBeans(): Coffee[] {
 		return this.coffeeData;
 	}
